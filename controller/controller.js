@@ -25,7 +25,7 @@ const vistaUnViaje = async (req, res) => {
 }
 
 const vistaAlgunosViajes = async (req = request, res = response) => {
-    const { limite = 4, desde = 1 } = req.query;
+    const { limite = 4, desde = 2 } = req.query;
     const query = { estado: true };
 
     const [ total, viajes ] = await Promise.all([
@@ -53,7 +53,7 @@ const crearViaje = async (req, res) => {
         }
 
     } catch (err) {
-        res.status(501).json({msg: "Este nombre ya existe en la base de datos, ingrese otro por favor", err})
+        res.status(501).json({msg: "Ocurrió un error durante la carga, por favor vuelva a intentarlo.", err})
     }
 }
 
@@ -62,8 +62,8 @@ const editarViaje = async (req, res) => {
         const error = validationResult(req)
         if (error.isEmpty()) {
             const {id} = req.params
-            const name = req.body.name
-            await Travel.findByIdAndUpdate(id, req.body)
+            const oldBody = req.body
+            const editBody = await Travel.findByIdAndUpdate(id, req.body)
             res.status(202).json({name, msg: "La edición fue satisfactoria"})
         } else {
             res.status(501).json(error)

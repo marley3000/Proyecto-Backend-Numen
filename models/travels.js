@@ -9,7 +9,6 @@ const storeSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     destination: {
         type: String,
@@ -20,6 +19,10 @@ const storeSchema = new Schema({
         required: true
     },
     duration_days: {
+        type: Number,
+        required: true
+    },
+    valoration: {
         type: Number,
         required: true
     },
