@@ -5,27 +5,30 @@ const storeSchema = new Schema({
     name: {
         type: String,
         required: true,
+    },
+    email: {
+        type: String,
+        required: true,
         unique: true
     },
-    img: {
+    destination: {
         type: String,
         required: true
     },
-    country: {
-        type: String,
+    number_travelers: {
+        type: Number,
         required: true
     },
     duration_days: {
         type: Number,
         required: true
     },
-    type: {
+    opinion: {
         type: String,
         required: true
     },
-    price_ARS: {
-        type: Number,
-        required: true
+    image_travel: {
+        type: String,
     }
 });
 const Travel = mongoose.model('Travel', storeSchema);
