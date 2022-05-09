@@ -12,16 +12,8 @@ const vistaViajes = async (req, res) => {
 }
 
 const vistaUnViaje = async (req, res) => {
-    try {
-        const viaje = await Travel.findById(req.params.id)
-            if (viaje !== null) {
-                res.json({viaje})
-            } else {
-                res.json({msg: "El id ingresado no se encuentra en la base de datos"})
-            }
-    } catch (error) {
-        res.status(400).json({msg:"El id ingresado es inválido, revíselo y vuelva a intentarlo", error})
-    }
+    const viaje = await Travel.findById(req.params.id)
+    res.json({viaje})
 }
 
 const vistaAlgunosViajes = async (req = request, res = response) => {
@@ -62,16 +54,15 @@ const editarViaje = async (req, res) => {
         const error = validationResult(req)
         if (error.isEmpty()) {
             const {id} = req.params
-            const oldBody = req.body
-            const editBody = await Travel.findByIdAndUpdate(id, req.body)
-            res.status(202).json({name, msg: "La edición fue satisfactoria"})
+            const newTravel = req.body
+            const oldTravel = await Travel.findByIdAndUpdate(id, req.body)
+            res.status(202).json({oldTravel, msg: "La edición fue satisfactoria", newTravel})
         } else {
             res.status(501).json(error)
         }
     } catch (err) {
         res.status(501).json({msg: "Problemas a la hora de editar la información", err})
     }
-    
 }
 
 const borrarViaje = async (req, res) => {
@@ -79,7 +70,7 @@ const borrarViaje = async (req, res) => {
         const viaje = await Travel.findByIdAndDelete(req.params.id)
         res.json({msg:"Se ha eliminado correctamente", viaje})
     } catch (error) {
-        res.status(400).json({msg:"problemas a la hora de borrar la información"})
+        res.status(501).json({msg:"Ha surgido un inconveniente a la hora de eliminar la información."})
     }
 }
 
