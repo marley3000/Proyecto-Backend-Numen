@@ -1,6 +1,6 @@
 
 const {Travel} = require('../models/travels');
-const {check, validationResult, body} = require('express-validator')
+const {validationResult} = require('express-validator')
 
 const vistaUno = (req, res) => {
     res.render('index', { title: 'Express' });

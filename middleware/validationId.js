@@ -1,6 +1,6 @@
 const {Travel} = require('../models/travels');
 
-const validarId = async (req, res, next) => {
+const validationId = async (req, res, next) => {
     try {
         const viaje = await Travel.findById(req.params.id)
         if (viaje !== null) {
@@ -14,4 +14,4 @@ const validarId = async (req, res, next) => {
     }
 }
 
-module.exports = {validarId}
+module.exports = {validationId}
