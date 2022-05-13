@@ -26,6 +26,9 @@ const storeSchema = new Schema({
         type: Number,
         required: true
     },
+    activities: {
+        type: String,
+    },
     opinion: {
         type: String,
         required: true
