@@ -28,9 +28,6 @@ const storeSchema = new Schema({
     opinion: {
         type: String,
         required: true
-    },
-    image_travel: {
-        type: String,
     }
 });
 const Travel = mongoose.model('Travel', storeSchema);
