@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const storeSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        required: true
     },
     destination: {
         type: String,
@@ -23,7 +23,7 @@ const storeSchema = new Schema({
         required: true
     },
     activities: {
-        type: String,
+        type: String
     },
     opinion: {
         type: String,
