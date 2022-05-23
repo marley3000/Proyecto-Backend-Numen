@@ -2,7 +2,6 @@ const {check, validationResult} = require('express-validator')
 
 exports.rules = [
     check("name").not().isEmpty().withMessage("Debe colocar un nombre").isLength({max:20, min:3}).withMessage("El nombre debe contener entre 4 y 20 caracteres"),
-    check("email").isEmail().withMessage("El email no es válido"),
     check("destination").not().isEmpty().withMessage("Debe indicar por lo menos un destino visitado").isLength({min:3}).withMessage("El destino debe contener como mínimo 4 caracteres"),
     check("number_travelers").not().isEmpty().withMessage("Indicar la cantidad de personas que participaron del viaje"),
     check("duration_days").not().isEmpty().withMessage("Debe indicar la duración del viaje"),
