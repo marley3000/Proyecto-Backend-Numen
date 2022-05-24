@@ -11,6 +11,11 @@ const vistaViajes = async (req, res) => {
     res.json({viajes})
 }
 
+const vistaViajeDestination = async (req, res) => {
+    const viaje = await Travel.find(req.params)
+    res.json({viaje})
+}
+
 const vistaUnViaje = async (req, res) => {
     const viaje = await Travel.findById(req.params.id)
     res.json({viaje})
@@ -75,4 +80,4 @@ const borrarViaje = async (req, res) => {
 }
 
 
-module.exports = {vistaUno, vistaViajes, vistaUnViaje, vistaAlgunosViajes, crearViaje, editarViaje, borrarViaje} 
+module.exports = {vistaUno, vistaViajes, vistaViajeDestination, vistaUnViaje, vistaAlgunosViajes, crearViaje, editarViaje, borrarViaje} 

@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router(); 
-const {vistaViajes, crearViaje, vistaUnViaje, vistaAlgunosViajes, editarViaje, borrarViaje} = require('../controller/controller.js');
+const {vistaViajes, crearViaje, vistaUnViaje, vistaViajeDestination, vistaAlgunosViajes, editarViaje, borrarViaje} = require('../controller/controller.js');
 const {validationId} = require("../middleware/validationId");
+const {validationDestination} = require("../middleware/validationDestination");
 const validationRules = require("../middleware/validationRules")
 
 
 router.get("/ver", vistaViajes);
+
+router.get("/verDestino/:destination", validationDestination, vistaViajeDestination)
 
 router.get("/verAlgunos", vistaAlgunosViajes);
 
