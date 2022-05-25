@@ -1,11 +1,11 @@
 // Se detalla la conexión
 
-const mongoose = require('mongoose');
 require('dotenv').config();
+const mongoose = require('mongoose');
 
 const dbConnection = async () => {
     try {  
-        await mongoose.connect( "mongodb+srv://martinfac:marley3000@clase-backend-numen.dyck1.mongodb.net/test",{
+        await mongoose.connect( process.env.MONGO_CNN,{
             useNewUrlParser: true,
             useUnifiedTopology: true,
         } )
