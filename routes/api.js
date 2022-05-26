@@ -12,7 +12,7 @@ router.get("/verDestino/:destination", validationDestination, vistaViajeDestinat
 
 router.get("/verAlgunos", vistaAlgunosViajes);
 
-router.post('/crear', validationRules.rules, validationRules.checks, crearViaje);
+router.post("/crear", validationRules.rules, validationRules.checks, crearViaje);
 
 router.get("/ver/:id", validationId, vistaUnViaje);
 
