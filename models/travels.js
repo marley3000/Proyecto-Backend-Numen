@@ -23,7 +23,8 @@ const storeSchema = new Schema({
         required: true
     },
     activities: {
-        type: String
+        type: String,
+        required: true
     },
     opinion: {
         type: String,
