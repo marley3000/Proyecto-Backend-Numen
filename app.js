@@ -11,7 +11,7 @@ const {dbConnection} = require('./db/db')
 
 const app = express();
 
-app.use(logger('dev'));
+app.use(logger('start'));
 app.use(express.json());
 app.use(cors())
 app.use(express.urlencoded({ extended: false }));
